@@ -1,0 +1,22 @@
+<h3>Просмотр</h3>
+<h3><%= @note.title %></h3>
+<p><%= @note.body %></p>
+<hr>
+<%= link_to "Редактировать", edit_note_path(@note), :class => 'btn btn-warning'%>
+<p><%= button_to "Удалить", note_path(@note), method: :delete, :class => 'btn btn-danger'%></p>
+
+<hr>
+<h3>Все комментарии</h3>
+<% @note.comments.each do |comm| %>
+    <div class="alert alert-light">
+       <p><strong><%= comm.username %></strong>: <%= comm.body%></p>
+    </div>
+<%end%>
+<hr>
+
+<h3>Добавление комментария</h3>
+<%= form_for([@note, @note.comments.build]) do |f| %>
+    <p>Пользователь<br><%= f.text_field(:username, {:class => 'form-control'}) %></p>
+    <p>Текст комментария<br><%= f.text_area(:body, {:class => 'form-control'}) %></p>
+    <p> <%= f.submit("Добавить комментарий", {:class => 'btn btn-success'}) %></p>
+<% end %>

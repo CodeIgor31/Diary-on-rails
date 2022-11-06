@@ -1,0 +1,8 @@
+<h3>Мой дневник</h3>
+<% @note.each do |note| %>
+    <div class="alert alert-light">
+        <h3><%= note.title %></h3>
+        <p><%= note.body %></p>
+        <%= link_to "Открыть день", note_path(note), :class => 'btn btn-default'%>
+    </div>
+<%end%>

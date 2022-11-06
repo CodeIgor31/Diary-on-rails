@@ -1,0 +1,11 @@
+<h3>Редактирование</h3>
+<%= form_for :note, url: note_path(@note), method: :patch do |f| %>
+    <% if @note.errors.any? %>
+        <% @note.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+    <p>Дата или название<br><%= f.text_field(:title, {:class => 'form-control'}) %></p>
+    <p>Событие<br><%= f.text_area(:body, {:class => 'form-control'}) %></p>
+    <p> <%= f.submit("Применить изменения",{:class => 'btn btn-success'}) %></p>
+<% end %>

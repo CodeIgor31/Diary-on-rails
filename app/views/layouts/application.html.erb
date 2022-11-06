@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diary</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">CodeIgor31</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to 'Главная страница', home_path %></span>
+        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to 'Добавить день', new_note_path %></span>
+        <span class="me-3 py-2 text-dark text-decoration-none"><%= link_to 'Обо мне', about_path %></span>
+      </nav>
+    </div>
+    <div class = "container">
+    <%= yield %>
+    </div>
+  </body>
+</html>
